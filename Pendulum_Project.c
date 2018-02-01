@@ -46,19 +46,18 @@
  * Secondary Goal:
  * To create different modes of use. 
  * 
- * USE CASE:
- * The code is meant for a pendulum and photo resistor set up.
- * 
  * Modules used:
  * A2D conversion
  * TMR0 
  * GPIO PINS
  * INTERRUPTS {INTCON,IOCBN}
  * EUSART
+ * BJT terminal 
  * 
  * External Hardware used:
  * Photo-resistor 
  * Solenoid 
+ * Relay
  * 
  * Output Pins:
  * RA5 - light for user feedback 
