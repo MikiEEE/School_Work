@@ -110,7 +110,6 @@ void main(void) {
 	        while_game(current_a2d_value,control_compare);
 	    } 
 	     while_function(current_a2d_value,control_compare);
-	    //Unsure of loss of variables upon main return so added following if statement
 	    if(!RB7){
 	        while(!RB7) {
 	            feedback_loop(1,10);
