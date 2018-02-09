@@ -70,14 +70,14 @@ void generateSet(vector<int> *set, int &numberOfElements) {
 }
 
 void printElements(vector<int> *numbers, vector<int> *count) {
-    for(int d = 0; d < numbers->size(); d++) {
+    for(unsigned int d = 0; d < numbers->size(); d++) {
         cout << numbers->at(d) << " : " << count->at(d) << endl;
     }
     return;
 }
 
 void countOccurences(vector<int> *numbers, vector<int> *count, vector<int> *set, const int &i) {
-    for(int d = 0; d < numbers->size(); d++) {
+    for(unsigned int d = 0; d < numbers->size(); d++) {
         if(numbers->at(d) == set->at(i)) {
             count->at(d)++ ;
         }
