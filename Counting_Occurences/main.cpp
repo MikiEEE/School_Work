@@ -2,6 +2,7 @@
 /*
 Reminder: "set" Needs to be sorted
 */
+i
 #include "main.h"
 
 
@@ -47,20 +48,3 @@ void generateSet(vector<int> *set, int &numberOfElements) {
     uniform_int_distribution<int> smallDice(1,9);
     mt19937 random;
     random.seed(time(0));
-    
-    set->push_back(dice(random) % smallDice(random));
-    for(unsigned int i = 0; i < numberOfElements - 1; i++) {
-        if(set->back() == dice(random) % smallDice(random)) {
-            set->push_back(dice(random));
-        }
-        else if(set->back() < dice(random) % smallDice(random)) {
-            set->push_back(set->back());
-        }
-        else {
-            set->push_back(dice(random) % smallDice(random));
-        }
-    }
-    return;
-}
-
-
