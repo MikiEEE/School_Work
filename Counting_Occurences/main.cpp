@@ -48,3 +48,15 @@ void generateSet(vector<int> *set, int &numberOfElements) {
     uniform_int_distribution<int> smallDice(1,9);
     mt19937 random;
     random.seed(time(0));
+    
+    set->at(0) = dice(random);
+    for(unsigned int i = 1; i < numberOfElements; i++) {
+        if(set->at(i - 1) == dice(random)) {
+            set->at(i) =(dice(random));
+        }
+        else {
+            set->at(i) = dice(random);
+        }
+    }
+    return;
+}
