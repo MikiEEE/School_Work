@@ -2,8 +2,6 @@
 //  main.c
 //  State_Machine
 //
-//  Created by Michael Emperador on 3/8/18.
-//  Copyright © 2018 Michael Emperador. All rights reserved.
 //
 
 /*
