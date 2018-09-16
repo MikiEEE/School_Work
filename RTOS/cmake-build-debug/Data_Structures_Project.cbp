@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Data_Structures_Project"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Data_Structures_Project">
+				<Option output="/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Data_Structures_Project" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/Michael/CLionProjects/Data_Structures_Project1/main"/>
+					<Add directory="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses"/>
+					<Add directory="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/nodeClass"/>
+					<Add directory="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/TaskClass"/>
+					<Add directory="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/hashClass"/>
+					<Add directory="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/RTOSClass"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Data_Structures_Project"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Data_Structures_Project/fast">
+				<Option output="/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Data_Structures_Project" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/Michael/CLionProjects/Data_Structures_Project1/main"/>
+					<Add directory="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses"/>
+					<Add directory="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/nodeClass"/>
+					<Add directory="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/TaskClass"/>
+					<Add directory="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/hashClass"/>
+					<Add directory="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/RTOSClass"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Data_Structures_Project/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Michael/CLionProjects/Data_Structures_Project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/TimersandUpdates.cpp">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/TimersandUpdates.hpp">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/RTOSClass/RTOS.cpp">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/RTOSClass/RTOS.hpp">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/RTOSClass/helperFunctions.cpp">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/TaskClass/Task.cpp">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/TaskClass/Task.hpp">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/hashClass/hashtable.cpp">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/hashClass/hashtable.h">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/nodeClass/node.cpp">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/UtilityClasses/nodeClass/node.hpp">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/main.cpp">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/main.h">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/voidFuctionLibrary.cpp">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/main/voidFuctionLibrary.hpp">
+			<Option target="Data_Structures_Project"/>
+		</Unit>
+		<Unit filename="/Users/Michael/CLionProjects/Data_Structures_Project1/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
