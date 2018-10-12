@@ -1,0 +1,1 @@
+Advanced Python for biologists is a book I decided to read while taking my first college level Biology course this summer. I figured it would give me a decent way to apply/strengthen my knowledge of data structures and python. In here are the various exercises that I've worked out in the book. 
