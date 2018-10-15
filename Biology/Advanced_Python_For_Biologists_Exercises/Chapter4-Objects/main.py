@@ -17,7 +17,7 @@ def main():
     title = 'alleles.csv', 'Simulation.csv'
     CSVDict = openAndRead(title[0])
     HaploidList = [Haploid(CSVDict[i]) for i in CSVDict]
-    numberOfSimulations = 100
+    numberOfSimulations = 1
     FrequencySim = performNaturalSelection(numberOfSimulations,HaploidList)
     closeAndWrite(FrequencySim,Fieldnames,title[1])
 
