@@ -1,0 +1,24 @@
+module ALU_32_tb();
+
+//module ALU_32_Bit(output [31:0]Result, input [31:0]A, [31:0]B, [2:0]Opcode);
+reg [31:0] A, B;
+wire [31:0] Result; 
+reg [2:0] Opcode; 
+reg clock; 
+integer  i;
+ALU_32_Bit ALU(Result, A, B, Opcode);
+
+initial begin 
+A = 32'h00000009; 
+B = 32'h0000000F;
+Opcode = 3'b000;
+i = 0;
+end 
+initial begin 
+    $monitor(A, B," ", Opcode, Result);
+    for( i = 0;i< 7; i=i+1,  Opcode = Opcode + 3'b001) begin
+        #50;
+    end
+end 
+
+endmodule
