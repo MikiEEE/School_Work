@@ -1,0 +1,77 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 09/05/2018 05:20:05 PM
+// Design Name: 
+// Module Name: RippleAdders
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module RippleAdder_1(A,B,carryin,result,propagate,generat);
+    input A, B,carryin;
+    output result,propagate,generat;
+    
+    assign result = carryin ^ A ^ B;
+    assign generat = A & B;
+    assign propagate = A ^ B;
+endmodule
+
+//////////////////////////////////////////////////////////////////////////////////////
+module LookAheadUnit_4bit(C,Propagate,Generate,G,P,Carryin);
+input [3:0] G, P; 
+input Carryin;
+output [2:0] C; 
+output Propagate, Generate; 
+
+assign C[0] = G[0]|P[0]&Carryin; 
+assign C[1] = G[1]|(P[1] & G[0])|(Carryin & P[0] & P[1]); 
+assign C[2] = G[2]|(G[1] & P[2])|(G[0] & P[1] & P[2])|(Carryin & P[0] & P[1] & P[2] & P[3]); 
+
+assign Propagate = P[0] & P[1] & P[2] & P[3]; 
+assign Generate = G[3] | (G[2] & P[3]) | (G[1] & P[3] & P[2]) | (G[0] & P[3] & P[2] & P[1]);
+endmodule
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+module LookAheadAdder_4bit(output [3:0] Sum,Gen, Prop, input CarryIn,[3:0]numA, [3:0]numB);
+//how do i float an output
+wire [3:0] G, P;
+wire [2:0]carryIn; 
+
+RippleAdder_1 FA_0(.A(numA[0]), .B(numB[0]),.carryin(CarryIn),.result(Sum[0]),.propagate(P[0]),.generat(G[0])); 
+RippleAdder_1 FA_1(.A(numA[1]), .B(numB[1]),.carryin(carryIn[0]),.result(Sum[1]),.propagate(P[1]),.generat(G[1])); 
+RippleAdder_1 FA_2(.A(numA[2]), .B(numB[2]),.carryin(carryIn[1]),.result(Sum[2]),.propagate(P[2]),.generat(G[2])); 
+RippleAdder_1 FA_3(.A(numA[3]), .B(numB[3]),.carryin(carryIn[2]),.result(Sum[3]),.propagate(P[3]),.generat(G[3]));
+
+LookAheadUnit_4bit LA_0(.C(carryIn),.Propagate(Prop),.Generate(Gen),.G(G),.P(P), .Carryin(CarryIn));
+  
+endmodule
+
+module Look_Ahead_Adder_8bit(output [7:0] Sum8, [0:0]Gen, Prop, CarryOut, input CarryIn8, [7:0] numA, [7:0] numB);
+wire [1:0] G,P; 
+wire interCarry; 
+
+
+LookAheadAdder_4bit FirstHalf(.Sum(Sum8[3:0]),.Gen(G[0]), .Prop(P[0]), .CarryIn(CarryIn8), .numA(numA[3:0]),.numB(numB[3:0]));
+LookAheadAdder_4bit SecondHalf(.Sum(Sum8[7:4]),.Gen(G[1]),.Prop(P[1]), .CarryIn(interCarry),.numA(numA[7:4]),.numB(numB[7:4]));//finish portlist
+
+assign interCarry = G[0] | (P[0] & CarryIn8);
+assign CarryOut = G[1] | (P[1] & interCarry);
+assign Prop = P[0] |P[1];
+assign Gen = G[1] | (G[0] & P[1]);
+endmodule
+
+

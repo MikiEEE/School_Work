@@ -1,0 +1,42 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 09/11/2018 12:53:52 PM
+// Design Name: 
+// Module Name: Adders_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Adders_tb();
+//module LookAheadAdder_4bit(output [3:0] Sum,Gen, Prop, input Carryin,[3:0] numA, numB);
+reg [7:0] NumA;
+reg [7:0] NumB; 
+reg  carryin1;
+wire Generate, Propagate;
+wire [7:0] Sum1;
+wire carryOut1;
+//Look_Ahead_Adder_8bit(output [7:0] Sum8, Gen, Prop, CarryOut, input CarryIn8, [7:0] numA, [7:0] numB)
+Look_Ahead_Adder_8bit uut(Sum1,Generate,Propagate,carryOut1,carryin1,NumA,NumB);
+
+initial 
+begin
+ NumA = 8'b00000001; 
+ NumB = 8'b00001001;
+ carryin1 = 0;
+
+end
+endmodule
+
