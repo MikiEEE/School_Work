@@ -7,9 +7,9 @@ import copy as replicate
 @Function performNaturalSelection() - generates a random number and compares it to the fitness level of the haploid individual.
     If the fitness score is greater, then the organism is killed and replaced by an existing organism (natural selection process)
     No genetic Recombination
-@param numberOfSimulations - the number of times this natural selection process goes on.
+@param fitnessOfGeneration - fitness score of generation that all haploids will be tested against
 @param HaploidList - The list of individuals that participate in similation (list of Haploid Objects)
-@return Returns Total Data from Simulations ///Needs to be hanged to return frequency
+@return - Returns the remaining Haploid List and the number of Deaths
 '''
 def performNaturalSelection(HaploidList, fitnessOfGeneration):
     FrequencySim = {}
@@ -19,8 +19,6 @@ def performNaturalSelection(HaploidList, fitnessOfGeneration):
         if not x.Selection(fitnessOfGeneration):
             HaploidList.remove(x)
             NumberOfDeaths = NumberOfDeaths + 1
-            # listRange = list(range(0,x)) + list(range(x,len(HaploidList)))
-            # HaploidList[x] = replicate.deepcopy(HaploidList[random.choice(listRange)])
     return HaploidList, NumberOfDeaths
 
 '''
@@ -37,6 +35,7 @@ def openAndRead(title):
             CSVDict[rownumber] =  row
             rownumber = rownumber + 1
     return CSVDict
+
 '''
 @Functon closeAndWrite() writes processed data to a file of the title given
 @param listOfDicts - Data given to print out
@@ -46,32 +45,43 @@ def openAndRead(title):
 def closeAndWrite(listOfDicts,Fieldnames, title):
     with open(title, 'w') as Outputfile:
         writer = csv.DictWriter(Outputfile, fieldnames=Fieldnames,extrasaction='ignore')
-        # for SimNum, Haploids in FrequencySim.items():
-        #     for Index, Alleles in Haploids.items():
-        #         writer.writerow(Alleles)
         writer.writeheader()
         for element in listOfDicts:
             writer.writerow(element)
-            # for key, value in element.items():
-            #     writer.writerow(value)
 
+'''
+@Function getFrequency() -  takes in A list of items and returns the frequencies
+    of each item in the list
+@param listOfItems - list of sublists that contain lists or indepndent items
+@param Fieldnames - optional List of fieldnames for the list elements,
+    if left blank, one will be generated but there will be ',,' in place of zeroes
+@param divisor - optional variable that holds the divisor of the frequencies
+    ie: occurences_of_fields/divisor
+@return - returns a dictionary {field:OccurenceofField / divisor}
+'''
 def getFrequency(listOfItems, Fieldnames=None, divisor=100):
     frequencies = dict()
     Names = set()
     field = 0
-
     if Fieldnames != None:
         field = 1
         for name in Fieldnames:
             frequencies[name] = 0
-
     for subList in listOfItems:
-        for element in subList:
-            if field == 0 and element not in Names:
-                Names.add(element)
-                frequencies[element] = 1
+        if isinstance(subList ,list):
+            for element in subList:
+                if field == 0 and element not in Names:
+                    Names.add(element)
+                    frequencies[element] = 1
+                else:
+                    frequencies[element] = frequencies[element] + 1
+        else:
+            if field == 0 and subList not in Names:
+                Names.add(subList)
+                frequencies[subList] = 1
             else:
-                frequencies[element] = frequencies[element] + 1
+                frequencies[subList] = frequencies[subList] + 1
     for key , value in frequencies.items():
         frequencies[key] = value / divisor
+
     return frequencies
