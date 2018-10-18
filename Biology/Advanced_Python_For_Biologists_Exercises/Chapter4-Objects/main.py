@@ -3,14 +3,11 @@ from HelperFunctions import *
 import HaploidClass
 from HaploidClass import Haploid
 
-#need Find Frequency Function
-
-
 '''
 @Funcion main() - Opens file and reads data from it, performs natural selection
 to kill off non-fit haploids and replaces them with haploids that lived through the natural
 Selection to simulate reproduction.
-Prints frequency of traits after desired number of simulationCycles .
+Prints frequency of traits to file "Simulation.csv" after desired number of simulationCycles .
 '''
 def main():
     listOffrequencies = list()
@@ -29,5 +26,4 @@ def main():
             HaploidList.append(HaploidList[random.randint(0, len(HaploidList) - 1)])
         listOffrequencies.append(getFrequency(listOfAllles, Fieldnames))
     closeAndWrite(listOffrequencies,Fieldnames,title[1])
-
 main()
