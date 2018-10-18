@@ -14,11 +14,14 @@ import copy as replicate
 def performNaturalSelection(HaploidList, fitnessOfGeneration):
     FrequencySim = {}
     Frequency = {}
-    for x in range(len(HaploidList)):
-        if not HaploidList[x].Selection(fitnessOfGeneration):
-            listRange = list(range(0,x)) + list(range(x,len(HaploidList)))
-            HaploidList[x] = replicate.deepcopy(HaploidList[random.choice(listRange)])
-    return HaploidList
+    NumberOfDeaths = 0
+    for x in HaploidList:
+        if not x.Selection(fitnessOfGeneration):
+            HaploidList.remove(x)
+            NumberOfDeaths = NumberOfDeaths + 1
+            # listRange = list(range(0,x)) + list(range(x,len(HaploidList)))
+            # HaploidList[x] = replicate.deepcopy(HaploidList[random.choice(listRange)])
+    return HaploidList, NumberOfDeaths
 
 '''
 @Function openAndRead() - Opens CSV given title and reads information into dictionary
@@ -52,7 +55,7 @@ def closeAndWrite(listOfDicts,Fieldnames, title):
             # for key, value in element.items():
             #     writer.writerow(value)
 
-def getFrequency(listOfItems, Fieldnames=None):
+def getFrequency(listOfItems, Fieldnames=None, divisor=100):
     frequencies = dict()
     Names = set()
     field = 0
@@ -69,4 +72,6 @@ def getFrequency(listOfItems, Fieldnames=None):
                 frequencies[element] = 1
             else:
                 frequencies[element] = frequencies[element] + 1
+    for key , value in frequencies.items():
+        frequencies[key] = value / divisor
     return frequencies
