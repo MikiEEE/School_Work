@@ -19,7 +19,7 @@ def main():
     title = 'alleles.csv', 'Simulation.csv'
     CSVDict = openAndRead(title[0])
     HaploidList = [Haploid(CSVDict[i]) for i in CSVDict]
-    numberOfSimulations = 100
+    numberOfSimulations = 10
     Deaths = 0
     sample_size = len(HaploidList)
     for sims in range(0,numberOfSimulations):
