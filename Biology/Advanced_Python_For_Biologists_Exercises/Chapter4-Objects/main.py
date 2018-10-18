@@ -19,12 +19,12 @@ def main():
     title = 'alleles.csv', 'Simulation.csv'
     CSVDict = openAndRead(title[0])
     HaploidList = [Haploid(CSVDict[i]) for i in CSVDict]
-    numberOfSimulations = 5
+    numberOfSimulations = 6
 
     for sims in range(0,numberOfSimulations):
         HaploidList = performNaturalSelection(HaploidList, random.random())
         listOfAllles = [HaploidList[i].getAlleles() for i in range(len(HaploidList))]
-        listOffrequencies.append(getFrequency(listOfAllles))
+        listOffrequencies.append(getFrequency(listOfAllles, Fieldnames))
     closeAndWrite(listOffrequencies,Fieldnames,title[1])
 
 main()

@@ -52,12 +52,19 @@ def closeAndWrite(listOfDicts,Fieldnames, title):
             # for key, value in element.items():
             #     writer.writerow(value)
 
-def getFrequency(listOfItems):
-    Names = set()
+def getFrequency(listOfItems, Fieldnames=None):
     frequencies = dict()
+    Names = set()
+    field = 0
+
+    if Fieldnames != None:
+        field = 1
+        for name in Fieldnames:
+            frequencies[name] = 0
+
     for subList in listOfItems:
         for element in subList:
-            if element not in Names:
+            if field == 0 and element not in Names:
                 Names.add(element)
                 frequencies[element] = 1
             else:
