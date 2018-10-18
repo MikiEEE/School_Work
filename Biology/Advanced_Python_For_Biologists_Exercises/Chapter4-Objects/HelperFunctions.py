@@ -11,18 +11,14 @@ import copy as replicate
 @param HaploidList - The list of individuals that participate in similation (list of Haploid Objects)
 @return Returns Total Data from Simulations ///Needs to be hanged to return frequency
 '''
-def performNaturalSelection(numberOfSimulations,HaploidList):
+def performNaturalSelection(HaploidList, fitnessOfGeneration):
     FrequencySim = {}
-    for SimNumber in range(numberOfSimulations):
-        Frequency = {}
-        for x in range(len(HaploidList)):
-            if not HaploidList[x].Selection():
-                listRange = list(range(0,x)) + list(range(x,len(HaploidList)))
-                HaploidList[x] = replicate.deepcopy(HaploidList[random.choice(listRange)])
-        for x in range(len(HaploidList)):
-            Frequency[x] = HaploidList[x].getAlleles()
-        FrequencySim[SimNumber] = Frequency
-    return FrequencySim
+    Frequency = {}
+    for x in range(len(HaploidList)):
+        if not HaploidList[x].Selection(fitnessOfGeneration):
+            listRange = list(range(0,x)) + list(range(x,len(HaploidList)))
+            HaploidList[x] = replicate.deepcopy(HaploidList[random.choice(listRange)])
+    return HaploidList
 
 '''
 @Function openAndRead() - Opens CSV given title and reads information into dictionary
@@ -40,13 +36,30 @@ def openAndRead(title):
     return CSVDict
 '''
 @Functon closeAndWrite() writes processed data to a file of the title given
-@param FrequencySim - Data given to print out
+@param listOfDicts - Data given to print out
 @param title - title of file to be open
 @return void
 '''
-def closeAndWrite(FrequencySim,Fieldnames, title):
+def closeAndWrite(listOfDicts,Fieldnames, title):
     with open(title, 'w') as Outputfile:
         writer = csv.DictWriter(Outputfile, fieldnames=Fieldnames,extrasaction='ignore')
-        for SimNum, Haploids in FrequencySim.items():
-            for Index, Alleles in Haploids.items():
-                writer.writerow(Alleles)
+        # for SimNum, Haploids in FrequencySim.items():
+        #     for Index, Alleles in Haploids.items():
+        #         writer.writerow(Alleles)
+        writer.writeheader()
+        for element in listOfDicts:
+            writer.writerow(element)
+            # for key, value in element.items():
+            #     writer.writerow(value)
+
+def getFrequency(listOfItems):
+    Names = set()
+    frequencies = dict()
+    for subList in listOfItems:
+        for element in subList:
+            if element not in Names:
+                Names.add(element)
+                frequencies[element] = 1
+            else:
+                frequencies[element] = frequencies[element] + 1
+    return frequencies
