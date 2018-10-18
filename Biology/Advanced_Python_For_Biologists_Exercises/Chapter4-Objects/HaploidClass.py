@@ -1,27 +1,17 @@
 import re
 import random
+from HelperFunctions import chunk
 
-def chunk(xs, n):
-    '''Split the list, xs, into n chunks'''
-    L = len(xs)
-    assert 0 < n <= L
-    s = L//n
-    return [xs[p:p+s] for p in range(0, L, s)]
 
+'''
+@Class Haploid - Contains the alleles and fitness scores of the instances
+@param AllelesEnetered - Alleles of parent, one of eahch pair gets passed down to haploid 
+@var fitnessScore - multiplicative scoring calculated with allele  fitness levels
+@var AllelesOfHaploid - 1 of each of the alleles in the parental pairs (selected at random)
+'''
 class Haploid(object):
     fitnessScore = 1
     AllelesOfHaploid = None
-
-    def pickAlleles(self,AllelesOfParent):
-        Allalleles = list()
-        selectedAlleles = list()
-        for Allele in AllelesOfParent:
-            if Allele != '':
-                Allalleles.append(Allele)
-        Allalleles = chunk(Allalleles,int(len(Allalleles)/2))
-        for allelesPairs in Allalleles:
-            selectedAlleles.append(allelesPairs[random.randint(0,1)])
-        return selectedAlleles
 
     def __init__(self, AllelesEnetered):
         self.AllelesOfHaploid = self.pickAlleles(AllelesEnetered)
@@ -53,3 +43,14 @@ class Haploid(object):
         if number < self.fitnessScore:
             return True
         return False
+
+    def pickAlleles(self,AllelesOfParent):
+        Allalleles = list()
+        selectedAlleles = list()
+        for Allele in AllelesOfParent:
+            if Allele != '':
+                Allalleles.append(Allele)
+        Allalleles = chunk(Allalleles,int(len(Allalleles)/2))
+        for allelesPairs in Allalleles:
+            selectedAlleles.append(allelesPairs[random.randint(0,1)])
+        return selectedAlleles

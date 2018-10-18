@@ -85,3 +85,16 @@ def getFrequency(listOfItems, Fieldnames=None, divisor=100):
         frequencies[key] = value / divisor
 
     return frequencies
+
+'''
+@function chunks() - splits list in desired number of chunks
+@param xs - object that is being split up (usually list)
+@param n - number of chunks needed to be generated
+@return - Returns list of chunks 
+'''
+def chunk(xs, n):
+    '''Split the list, xs, into n chunks'''
+    L = len(xs)
+    assert 0 < n <= L
+    s = L//n
+    return [xs[p:p+s] for p in range(0, L, s)]
