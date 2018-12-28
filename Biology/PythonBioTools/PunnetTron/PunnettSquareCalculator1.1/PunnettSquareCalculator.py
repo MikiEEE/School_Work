@@ -3,18 +3,17 @@ import HelperFunctions as hp
 # parent1 = input("Please Input Parent 1's Alleles: ")
 # parent2 = input("Please Input Parent 2's Alleles: ")
 #
-# parent1 = "AabbcCDdEeFfHHIiLlmMnnJJ"
-# parent2 = "aaBbccDDeeFFhhiiLlmmNnjj"
+parent1 = "AabbcCDdEeFfHHIiLl"
+parent2 = "aaBbccDDeeFFhhiiLl"
 
-parent1 = "AabbcCDd"
-parent2 = "aaBbccDd"
 
-numOfParent = 2
+# parent1 = "AabbcCDd"
+# parent2 = "aaBbccDd"
+
 potentialChild = list()
-Genomes = dict()
 potentialChild = hp.generateSinglePairs(len(parent1), parent1, parent2)
-print(potentialChild)
-potentialChild = [sorted(x) for x in potentialChild]
+Genomes = dict()
+potentialChild = [''.join(sorted(x)) for x in potentialChild]
 seperateTraits = hp.chunk(potentialChild, int(len(parent1)/2))
 
 print('generateSinglePairs',potentialChild)
@@ -26,13 +25,12 @@ for x in range(1,int(len(parent1)/2)):
 
 del seperateTraits
 
-Traits = hp.orderListsElements(int(len(parent1)/2), Traits)
+# Traits = hp.orderListsElements(int(len(parent1)/2), Traits)
 
-keys = set(Genomes.keys())
+
 for y in Traits:
-    if y not in keys:
+    if Genomes.get(y, -1) == -1:
         Genomes[y] = 1
-        keys.add(y)
     else:
         Genomes[y] += 1
 

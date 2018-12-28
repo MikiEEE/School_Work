@@ -19,7 +19,7 @@ def orderListsElements(length, traitList):
 #Takes in Parentalal Genomes and generates Possible Pairs
 def generateSinglePairs(length,ParentGenome1, ParentGenome2):
     assert len(ParentGenome1) == len(ParentGenome2)
-    assert length > 0 
+    assert length > 0
     ResultHolder = list()
     for newAlleleStart in range(0,length,2):
         for parent1Allele in ParentGenome1[newAlleleStart:newAlleleStart+2]:
@@ -29,7 +29,10 @@ def generateSinglePairs(length,ParentGenome1, ParentGenome2):
 
 def mix(trait1,trait2):
     childList = list()
+    assert len(trait2) == 4
     for x in trait1:
-        for y in trait2:
-            childList.append(x + y)
+            childList.append(x + trait2[0])
+            childList.append(x + trait2[1])
+            childList.append(x + trait2[2])
+            childList.append(x + trait2[3])
     return childList

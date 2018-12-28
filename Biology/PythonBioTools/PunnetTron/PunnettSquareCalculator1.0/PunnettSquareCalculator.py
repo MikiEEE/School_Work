@@ -39,11 +39,11 @@ def mix(trait1,trait2):
 # parent1 = "Aabb"
 # parent2 = "aaBb"
 
-# parent1 = "AabbcCDdEeFfHHIiLlmMnnJJ"
-# parent2 = "aaBbccDDeeFFhhiiLlmmNnjj"
-#
-parent1 = "AabbcCDd"
-parent2 = "aaBbccDd"
+parent1 = "AabbcCDdEeFfHHIiLl"
+parent2 = "aaBbccDDeeFFhhiiLl"
+
+# parent1 = "AabbcCDd"
+# parent2 = "aaBbccDd"
 
 numOfParent = 2
 potentialChild = list()
