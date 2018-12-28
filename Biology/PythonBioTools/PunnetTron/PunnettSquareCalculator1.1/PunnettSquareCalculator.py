@@ -3,8 +3,8 @@ import HelperFunctions as hp
 # parent1 = input("Please Input Parent 1's Alleles: ")
 # parent2 = input("Please Input Parent 2's Alleles: ")
 #
-parent1 = "AabbcCDdEeFfHHIiLl"
-parent2 = "aaBbccDDeeFFhhiiLl"
+parent1 = "AabbcCDdEeFfHHIiLljjMm"
+parent2 = "aaBbccDDeeFFhhiiLlJjmm"
 
 
 # parent1 = "AabbcCDd"
@@ -20,13 +20,11 @@ print('generateSinglePairs',potentialChild)
 print('CHUNK',seperateTraits)
 
 Traits = seperateTraits[0]
+
 for x in range(1,int(len(parent1)/2)):
     Traits= hp.mix(Traits,seperateTraits[x])
 
 del seperateTraits
-
-# Traits = hp.orderListsElements(int(len(parent1)/2), Traits)
-
 
 for y in Traits:
     if Genomes.get(y, -1) == -1:
@@ -34,9 +32,14 @@ for y in Traits:
     else:
         Genomes[y] += 1
 
+traitLength = len(Traits)
+del Traits
+
 
 print("#   Genome  Percentage")
 index = 1
 for x in Genomes.keys():
-    print(str(index) + ".   " + str(x) + "      " + str((Genomes[x]/len(Traits)) * 100) + "%" )
+    print(str(index)".","  ",str(x),"      ",str((Genomes[x]/traitLength) * 100) + "%" )
     index+=1
+
+del Genomes
