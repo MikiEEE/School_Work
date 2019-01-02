@@ -1,5 +1,7 @@
 import HelperFunctions as hp
 from functools import reduce
+##ADD find phenotypes ,FindGenotype, Sexlink
+
 
 def calculateGeneticTraits(parent1, parent2):
     potentialChild = list()
@@ -21,12 +23,12 @@ def printGenomes(Genomes):
     del Genomes
     return
 
-
-
 if __name__ == '__main__':
-    parent1 = "AabbcCDdEeFfHHIiLljjMm"
-    parent2 = "aaBbccDDeeFFhhiiLlJjmm"
+    # parent1 = "AabbcCDdEeFfHHIiLljjMm"
+    # parent2 = "aaBbccDDeeFFhhiiLlJjmm"
     parent1 = "AabbcCDd"
     parent2 = "aaBbccDd"
+    # parent1 = "AABb"
+    # parent2 = "aaBB"
     genome = calculateGeneticTraits(parent1, parent2)
     printGenomes(genome)
