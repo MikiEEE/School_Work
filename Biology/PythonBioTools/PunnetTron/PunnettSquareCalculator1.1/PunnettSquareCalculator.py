@@ -5,7 +5,7 @@ from functools import reduce
 
 def calculateGeneticTraits(parent1, parent2):
     potentialChild = list()
-    potentialChild = hp.generateSinglePairs(len(parent1), parent1, parent2)
+    potentialChild = hp.generateSinglePairs(parent1, parent2)
     potentialChild = [''.join(sorted(x)) for x in potentialChild]
     seperateTraits = hp.chunk(potentialChild, int(len(parent1)/2))
     Traits = hp.createTraits(seperateTraits)
@@ -24,10 +24,10 @@ def printGenomes(Genomes):
     return
 
 if __name__ == '__main__':
-    # parent1 = "AabbcCDdEeFfHHIiLljjMm"
-    # parent2 = "aaBbccDDeeFFhhiiLlJjmm"
-    parent1 = "AabbcCDd"
-    parent2 = "aaBbccDd"
+    parent1 = "AabbcCDdEeFfHHIiLljjMm"
+    parent2 = "aaBbccDDeeFFhhiiLlJjmm"
+    # parent1 = "AABBCCDD"
+    # parent2 = "AaBbCcDd"
     # parent1 = "AABb"
     # parent2 = "aaBB"
     genome = calculateGeneticTraits(parent1, parent2)
