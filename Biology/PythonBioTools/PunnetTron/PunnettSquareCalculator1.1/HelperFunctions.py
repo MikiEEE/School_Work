@@ -8,17 +8,6 @@ def chunk(xs, n):
     s = L//n
     return [xs[p:p+s] for p in range(0, L, s)]
 
-def orderListsElements(length, traitList):
-    for d in range(0,len(traitList)):
-        temp1 = list()
-        temp = chunk(traitList[d], int(length))
-        for x in range(0, len(temp)):
-            temp[x] = ''.join(sorted(temp[x]))
-        for x in temp:
-            temp1 += x
-        traitList[d] = ''.join(temp1)
-    return traitList
-
 #Takes in Parentalal Genomes and generates Possible Pairs
 def generateSinglePairs(ParentGenome1, ParentGenome2):
     '''Takes in Parentalal Genomes and generates Possible Pairs'''
