@@ -17,6 +17,7 @@ def calculateGeneticTraits(parent1, parent2):
 def printGenomes(Genomes):
     traitLength = reduce(lambda x,y: x + y, Genomes.values())
     index = 1
+    print('LENGTH',traitLength)
     for x in Genomes.keys():
         print(str(index) + ".","  ",str(x),"      ",str((Genomes[x]/traitLength) * 100) + "%" )
         index+=1
@@ -26,8 +27,8 @@ def printGenomes(Genomes):
 if __name__ == '__main__':
     parent1 = "AabbcCDdEeFfHHIiLljjMm"
     parent2 = "aaBbccDDeeFFhhiiLlJjmm"
-    # parent1 = "AABBCCDD"
-    # parent2 = "AaBbCcDd"
+    parent1 = "AABBCCDD"
+    parent2 = "AaBbCcDd"
     # parent1 = "AABb"
     # parent2 = "aaBB"
     genome = calculateGeneticTraits(parent1, parent2)

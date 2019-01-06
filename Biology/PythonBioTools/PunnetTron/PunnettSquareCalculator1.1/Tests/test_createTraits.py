@@ -2,6 +2,7 @@ import sys
 sys.path.append("../")
 import nose.tools as nose
 from  HelperFunctions import createTraits
+from Elements_State import createTraits as uut
 #Only use to make test output
 from filePrinter import makeOuput
 
@@ -14,22 +15,22 @@ def setupOutput():
     global CorrectOuput
     global fileName
     TestInput = [
-    ['AB', 'Aa', 'aa', 'aa'],
-    ['Bb', 'bb', 'Bb', 'bb'],
-    ['cc', 'cc', 'Cc', 'Cc'],
-    ['DD', 'DD', 'Dd', 'Dd']
+    ['AA', 'Aa', 'Aa', 'aa'],
+    ['BB', 'Bb', 'Bb', 'bb'],
+     ['cc', 'cc', 'Cc', 'Cc'],
+    # ['DD', 'DD', 'Dd', 'Dd']
     ]
-    fileName = 'createTraitsOutput_4.txt'
+    fileName = 'Tests/createTraitsOutput_4.txt'
     makeOuput(TestInput,fileName )
     CorrectOuput = [lines.strip('\n') for lines in open(fileName,'r').readlines()]
     return
 
 @nose.with_setup(setupOutput)
 def test_createTraits():
-    nose.assert_equal(createTraits(TestInput),CorrectOuput)
+    nose.assert_equal(sorted(uut(TestInput)),sorted(CorrectOuput))
     return
 
 @nose.with_setup(setupOutput)
 def test_invalidInput():
     fatalInput = ['Ee']
-    nose.assert_raises(ValueError,createTraits, TestInput + fatalInput)
+    nose.assert_raises(ValueError,uut, TestInput + fatalInput)
