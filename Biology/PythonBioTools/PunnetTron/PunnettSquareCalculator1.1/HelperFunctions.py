@@ -1,6 +1,5 @@
 import pdb
 from functools import reduce
-
 def chunk(xs, n):
     '''Split the list, xs, into n chunks'''
     L = len(xs)

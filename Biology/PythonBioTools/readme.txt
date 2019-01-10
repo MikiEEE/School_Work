@@ -23,7 +23,3 @@ After you do so it will generate a list of combinations and the genotypic ratio.
 Best if used under 8 pairs of alleles. 
 
 
-COMPUTER SCIENCE WARNING:
-This was made on a late night and big'O notation & efficency were not my priority. 
-It could more effecient/pretty with sets and comprehensions but I only really need it to 
-work with up to 4 pairs of alleles. 
