@@ -1,6 +1,5 @@
 import pdb
 from functools import reduce
-counter = 0
 def chunk(xs, n):
     '''Split the list, xs, into n chunks'''
     L = len(xs)
@@ -23,7 +22,6 @@ def generateSinglePairs(ParentGenome1, ParentGenome2):
     return ResultHolder
 
 def mix(trait1,trait2):
-    global counter
     if len(trait2) != 4:
         raise ValueError('length of Trait2 must be equal t 4')
     if trait1 == None:
@@ -34,15 +32,12 @@ def mix(trait1,trait2):
         childList.append(x + trait2[1])
         childList.append(x + trait2[2])
         childList.append(x + trait2[3])
-        counter += 1
     return childList
 
 def createTraits(seperateTraits):
-    global counter
     result = seperateTraits[0]
     for alleles in seperateTraits[1:]:
         result = mix(result, alleles)
-    print('COUNTER:',counter)
     return result
 
 def buildGenome(Traits):

@@ -27,10 +27,13 @@ def setupOutput():
 
 @nose.with_setup(setupOutput)
 def test_createTraits():
-    nose.assert_equal(sorted(uut(TestInput)),sorted(CorrectOuput))
+    test = uut(TestInput)
+    correct = CorrectOuput
+    nose.assert_equal(set(test),set(correct))
+    nose.assert_equal(len(test), len(correct))
     return
 
 @nose.with_setup(setupOutput)
 def test_invalidInput():
     fatalInput = ['Ee']
-    nose.assert_raises(ValueError,uut, TestInput + fatalInput)
+    nose.assert_raises(IndexError,uut, TestInput + fatalInput)
